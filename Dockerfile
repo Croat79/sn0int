@@ -10,7 +10,7 @@ RUN --mount=type=cache,target=/var/cache/buildkit \
     cp -v /var/cache/buildkit/target/release/sn0int /
 RUN strip /sn0int
 
-FROM alpine:3.15
+FROM alpine:3.16
 RUN apk add --no-cache libgcc sqlite-libs libseccomp libsodium
 COPY --from=0 /sn0int /usr/local/bin/sn0int
 VOLUME ["/data", "/cache"]
